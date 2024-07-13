@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>15 de Maia</title>
+</head>
+<body>
+<div id="contenedor">
+    <img src="img/xvmaia.gif" alt="15maia">
+    <p>ME GUSTARÍA COMPARTIR CON VOS ESTE DÍA TAN ESPECIAL</p><br>
+    <P>CONFIRMAME TU ASISTENCIA POR WHATSAPP</P>
+    <a href="https://wa.me/1157208415?text=Hola,%20confirmo%20mi%20asistencia%20al%20cumpleaños%20de%20Maia" class="whatsapp-button">Whatsapp Analía</a>
+    <p>Por favor indicar cualquier restriccíon alimentaria</p>
+    <h3>¡TE ESPERAMOS!</h3> <br>
+    <img src="img/dresscode.png" alt="dresscode" class="imagen2">
+
+    <h4>Dress Code</h4>
+    <h4>Elegante Sport</h4>
+
+    <div class="ubicacion">
+        <h3 id="donde">¿DONDE?</h3>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.169983870815!2d-58.3835037!3d-34.7008923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccd2624311aed%3A0x1e0e0c032a8b8a39!2sTihara%20Eventos!5e0!3m2!1ses!2sar!4v1720828366915!5m2!1ses!2sar" 
+                width="600" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                aria-hidden="false" 
+                tabindex="0">
+            </iframe>
+        </div>
+    </div>
+
+
+    <div class="imgcontenedora">
+        <div class="image-container">
+            <img src="img/solofaltan.png" alt="fiesta contador">
+            <div class="countdown">
+                <div class="time-box">
+                    <span id="days">0</span>
+                    <p>Días</p>
+                </div>
+                <div class="time-box">
+                    <span id="hours">0</span>
+                    <p>Horas</p>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">0</span>
+                    <p>Minutos</p>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">0</span>
+                    <p>Segundos</p>
+                </div>
+            </div>
+        </div>
+</div>
+
+    <script>
+        function updateCountdown() {
+            const targetDate = new Date('2024-10-05T21:30:00').getTime();
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days;
+            document.getElementById('hours').innerText = hours;
+            document.getElementById('minutes').innerText = minutes;
+            document.getElementById('seconds').innerText = seconds;
+
+            if (difference < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector('.countdown').innerHTML = "<h2>¡El evento ha comenzado!</h2>";
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</body>
+</html>
